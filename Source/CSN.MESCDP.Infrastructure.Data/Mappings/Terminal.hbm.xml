@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="CTTPB.MESCDP.Domain" namespace="CTTPB.MESCDP.Domain.Entities" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Terminal" table="T_TERMINAL" >
+    <id name="IdTern">
+      <column name="ID_TERN" sql-type="int" not-null="true" />
+    </id>
+    <version name="NuVers" column="NU_VERS" type="int" unsaved-value="0" generated="never" />
+    <property name="DtUltAtual">
+      <column name="DT_ULT_ATUAL" sql-type="datetime" not-null="true" />
+    </property>
+    <!--<many-to-one name="Processo01" insert="false" update="false">
+      <column name="CD_PLANTA" sql-type="varchar" not-null="false" />
+      <column name="ID_PRCS" sql-type="int" not-null="false" />
+    </many-to-one>
+    <many-to-one name="ModalTransporte01">
+      <column name="CD_MODO" sql-type="char" not-null="true" />
+    </many-to-one>
+    <many-to-one name="RecursoApropriacaoEvento01">
+      <column name="FL_TIPO_RECS_APRP_EVNT" sql-type="char" not-null="false" />
+      <column name="ID_RECS_APRP_EVNT" sql-type="int" not-null="false" />
+    </many-to-one>-->
+    <!--<many-to-one name="Planta01">
+      <column name="CD_PLANTA" sql-type="varchar" not-null="false" />
+    </many-to-one>-->
+    <property name="CdTern">
+      <column name="CD_TERN" sql-type="char" not-null="true" />
+    </property>
+    <property name="CdTernMrs">
+      <column name="CD_TERN_MRS" sql-type="char" not-null="false" />
+    </property>
+    <property name="CdTernScv">
+      <column name="CD_TERN_SCV" sql-type="char" not-null="false" />
+    </property>
+    <property name="FlSituaTern">
+      <column name="FL_SITUA_TERN" sql-type="char" not-null="true" />
+    </property>
+    <property name="FlTernCrgaDscg">
+      <column name="FL_TERN_CRGA_DSCG" sql-type="char" not-null="true" />
+    </property>
+    <property name="FlTernCtrlSist">
+      <column name="FL_TERN_CTRL_SIST" sql-type="char" not-null="true" />
+    </property>
+    <property name="FlTernPesa">
+      <column name="FL_TERN_PESA" sql-type="char" not-null="true" />
+    </property>
+    <property name="IdMtricUsuaUltAtual">
+      <column name="ID_MTRIC_USUA_ULT_ATUAL" sql-type="varchar" not-null="true" />
+    </property>
+    <property name="TxDscrTern">
+      <column name="TX_DSCR_TERN" sql-type="varchar" not-null="true" />
+    </property>
+    <!--begin-user-mapping-->
+    <!--<property name="IdPrcs">
+      <column name="ID_PRCS" sql-type="int" not-null="false" />
+    </property>-->
+    <!--<property name="CdModalTrnp" insert="false" update="false">
+      <column name="CD_MODO" sql-type="char" not-null="true"/>
+    </property>-->
+    <property name="FlEnvioTremPorto">
+      <column name="FL_ENVIO_TREM_PORTO" sql-type="char" not-null="false" />
+    </property>
+    <!--<bag name="PontoCrgaTipoCrgaDscgLista" inverse="true" cascade="none" lazy="true">
+      <key>
+        <column name="ID_TERN"/>
+      </key>
+      <one-to-many class="PontoCrgaTipoCrgaDscg" />
+    </bag>
+    <bag name="MaterialLista" table="T_TERMINAL_MATERIAL" cascade="none" lazy="true">
+      <key>
+        <column name="ID_TERN" />
+      </key>
+      <many-to-many class="Material" not-found="ignore">
+        <column name="ID_MTER" />
+      </many-to-many>
+    </bag>
+    <bag name="EquipamentoTerminalLista" table="T_EQUIPAMENTO_TERMINAL" cascade="none">
+      <key on-delete="noaction" update="false">
+        <column name="ID_TERN" />
+      </key>
+      <one-to-many class="EquipamentoTerminal" />
+    </bag>
+    <bag name="CartaControleLista" table="T_CARTA_CONTROLE" cascade="none">
+      <key on-delete="noaction" update="false">
+        <column name="ID_TERN" />
+      </key>
+      <one-to-many class="CartaControle" />
+    </bag>-->
+    <!--<property name="FlTipoRecsAprpEvnt" insert="false" update="false">
+      <column name="FL_TIPO_RECS_APRP_EVNT" sql-type="string" not-null="true" />
+    </property>
+    <property name="IdRecsAprpEvnt" insert="false" update="false">
+      <column name="ID_RECS_APRP_EVNT" sql-type="int" not-null="true" />
+    </property>-->
+    <!--end-user-mapping-->
+  </class>
+  <!--begin-user-queries-->
+  <!--end-user-queries-->
+</hibernate-mapping>

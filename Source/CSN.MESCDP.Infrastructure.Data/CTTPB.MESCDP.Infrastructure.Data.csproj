@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Mappings\Acao.hbm.xml" />
+    <None Remove="Mappings\AcaoFuncionalidadeMes.hbm.xml" />
+    <None Remove="Mappings\ComposicaoTrem.hbm.xml" />
+    <None Remove="Mappings\FuncionalidadeMes.hbm.xml" />
+    <None Remove="Mappings\PermissaoAcesso.hbm.xml" />
+    <None Remove="Mappings\PesagemVagao.hbm.xml" />
+    <None Remove="Mappings\Terminal.hbm.xml" />
+    <None Remove="Mappings\TipoEquipamento.hbm.xml" />
+    <None Remove="Mappings\TremCarregamento.hbm.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Acao.hbm.xml" />
+    <EmbeddedResource Include="Mappings\AcaoFuncionalidadeMes.hbm.xml" />
+    <EmbeddedResource Include="Mappings\ComposicaoTrem.hbm.xml" />
+    <EmbeddedResource Include="Mappings\FuncionalidadeMes.hbm.xml" />
+    <EmbeddedResource Include="Mappings\PermissaoAcesso.hbm.xml" />
+    <EmbeddedResource Include="Mappings\PesagemVagao.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Terminal.hbm.xml" />
+    <EmbeddedResource Include="Mappings\TipoEquipamento.hbm.xml" />
+    <EmbeddedResource Include="Mappings\TremCarregamento.hbm.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RestSharp" Version="106.6.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CSN.MESCDP.DOMAIN\CTTPB.MESCDP.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.Options">
+      <HintPath>..\..\..\..\..\..\..\.nuget\packages\microsoft.extensions.options\2.1.1\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

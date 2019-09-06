@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="CTTPB.MESCDP.Domain" namespace="CTTPB.MESCDP.Domain.Entities" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="FuncionalidadeMes" table="T_FUNCIONALIDADE_MES" >
+    <id name="NmFncaoMes">
+      <column name="NM_FNCAO_MES" sql-type="varchar" not-null="true" />
+    </id>
+    <!--begin-user-mapping-->
+    <!--end-user-mapping-->
+  </class>
+  <!--begin-user-queries-->
+  <!--end-user-queries-->
+</hibernate-mapping>

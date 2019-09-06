@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="CTTPB.MESCDP.Domain" namespace="CTTPB.MESCDP.Domain.Entities" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="PermissaoAcesso" table="T_PERMISSAO_ACESSO" >
+    <id name="IdPermtAcss">
+      <column name="ID_PERMT_ACSS" sql-type="int" not-null="true" />
+    </id>
+    <!--<many-to-one name="Processo01" insert="false" update="false">
+      <column name="CD_PLANTA" sql-type="varchar" not-null="false" />
+      <column name="ID_PRCS" sql-type="int" not-null="false" />
+    </many-to-one>-->
+    <!--<many-to-one name="AcaoFuncionalidadeMes01">-->
+    <many-to-one name="AcaoFuncionalidadeMes01" fetch="join">
+      <column name="NM_ACAO" sql-type="varchar" not-null="true" />
+      <column name="NM_FNCAO_MES" sql-type="varchar" not-null="true" />
+    </many-to-one>
+    <property name="CdGrupoAd">
+      <column name="CD_GRUPO_AD" sql-type="varchar" not-null="true" />
+    </property>
+    <property name="CdPlanta">
+      <column name="CD_PLANTA" sql-type="string" not-null="false" />
+    </property>
+    <!--<property name="NmAcao">
+      <column name="NM_ACAO" sql-type="varchar" not-null="true" />
+    </property>
+    <property name="NmFncaoMes">
+      <column name="NM_FNCAO_MES" sql-type="varchar" not-null="true" />
+    </property>-->
+    <!--begin-user-mapping-->
+    <!--<property name="IdPrcs">
+      <column name="ID_PRCS" sql-type="int" not-null="false" />
+    </property>-->
+    <!--<property name="CdPlanta">
+      <column name="CD_PLANTA" sql-type="string" not-null="false" />
+    </property>-->
+    <!--end-user-mapping-->
+  </class>
+  <!--begin-user-queries-->
+  <!--end-user-queries-->
+</hibernate-mapping>

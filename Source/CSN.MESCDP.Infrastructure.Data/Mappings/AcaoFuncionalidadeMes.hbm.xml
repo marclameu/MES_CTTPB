@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="CTTPB.MESCDP.Domain" namespace="CTTPB.MESCDP.Domain.Entities" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="AcaoFuncionalidadeMes" table="T_ACAO_FUNCIONALIDADE_MES">
+    <composite-id>
+      <key-property name="NmAcao" column="NM_ACAO" />
+      <key-property name="NmFncaoMes" column="NM_FNCAO_MES" />
+    </composite-id>
+    <many-to-one name="Acao01" insert="false" update="false">
+      <column name="NM_ACAO" sql-type="varchar" not-null="true" />
+    </many-to-one>
+    <many-to-one name="FuncionalidadeMes01" insert="false" update="false">
+      <column name="NM_FNCAO_MES" sql-type="varchar" not-null="true" />
+    </many-to-one>
+    <!--<set name="PermissaoAcessoLista" fetch="join">-->
+    <bag name="PermissaoAcessoLista" fetch="join">
+      <key>
+        <column name ="NM_ACAO" />
+        <column name ="NM_FNCAO_MES" />
+      </key>
+      <one-to-many class="PermissaoAcesso" />
+    </bag>
+    <!--begin-user-mapping-->
+    <!--end-user-mapping-->
+  </class>
+  <!--begin-user-queries-->
+  <!--end-user-queries-->
+</hibernate-mapping>
