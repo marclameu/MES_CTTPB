@@ -31,7 +31,7 @@ namespace CTTPB.MESCDP.Application.WebApi.Filters
         readonly Claim _claim;
         private IPermissaoAcessoRepository _permissaoAcessoRepository;
         private IAcaoFuncionalidadeMesRepository _acaoFuncionalidadeMesRepository;
-        
+
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IMemoryCache _memoryCache;
         private const int CacheDurationInMinutes = 20;
@@ -58,7 +58,7 @@ namespace CTTPB.MESCDP.Application.WebApi.Filters
             var acao = _claim.Value.Substring(_claim.Value.LastIndexOf('_') + 1,
                 _claim.Value.Length - 1 - _claim.Value.Substring(0, _claim.Value.LastIndexOf('_')).Length);
 
-            
+
             if (!permissoesEmCache)
             {
                 _permissaoAcessoRepository = (_permissaoAcessoRepository == null)
@@ -72,10 +72,15 @@ namespace CTTPB.MESCDP.Application.WebApi.Filters
 
                 //A QUERY EXECUTADA AQUI ESTÁ FUNCIONANDO CONFORME O ESPERADO
                 //FAZ JOIN CORRETAMENTE.
+
+                //ENG
+                //QUERY PERFORMED HERE IS WORKING AS EXPECTED
+                //MAKES JOIN CORRECTLY
+
                 var permissoes = _permissaoAcessoRepository.FindPorGruposAd(rolesADUser);
 
-                //AQUI OCORRE O PROBLEMA DE N + 1
-                //PARA CADA ITEM DA LISTA, ELE RETORNA AO BANCO DE DADOS.
+                //N + 1 PROBLEM
+                //FOR EACH LIST ITEM RETURNS TO DATABASE.
                 permissoes.ToList().ForEach(p =>
                 {
                     rolesMes.Add(p.AcaoFuncionalidadeMes01.NmAcao + "---" + p.AcaoFuncionalidadeMes01.NmFncaoMes);
@@ -112,12 +117,12 @@ namespace CTTPB.MESCDP.Application.WebApi.Filters
         private bool usuarioPossuiAcesso(string acao, string funcionalidade, List<string> rolesMes)
         {
             var permitido = false;
-                rolesMes.ForEach(role =>
-                {
-                    if (role.Split("----")[0].ToUpper().Equals(acao.ToUpper()) &&
-                        role.Split("----")[1].ToUpper().Equals(funcionalidade.ToUpper()))
-                        permitido = true;
-                });
+            rolesMes.ForEach(role =>
+            {
+                if (role.Split("----")[0].ToUpper().Equals(acao.ToUpper()) &&
+                    role.Split("----")[1].ToUpper().Equals(funcionalidade.ToUpper()))
+                    permitido = true;
+            });
             return permitido;
         }
 
@@ -127,7 +132,7 @@ namespace CTTPB.MESCDP.Application.WebApi.Filters
 
             groups.ToList().ForEach(g =>
             {
-                var nomeArray = g.Translate(typeof(NTAccount)).ToString().Split(new char[] { '\\' }); 
+                var nomeArray = g.Translate(typeof(NTAccount)).ToString().Split(new char[] { '\\' });
                 groupsNames.Add(nomeArray[nomeArray.Length - 1]);
             });
 
